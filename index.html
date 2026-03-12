@@ -5,49 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Plataforma Respira - Reprogramação Mental de 7 Dias</title>
     
-    <!-- Importando Fontes -->
+    <!-- Importando Fonte Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Playfair para títulos elegantes, Inter para corpo de texto (estilo clean/clínico) -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Ícones -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
     <style>
-        /* --- DESIGN SYSTEM: PREMIUM WELLNESS PLATFORM --- */
+        /* --- DESIGN SYSTEM: PREMIUM HIGH-CONTRAST (Inspirado em fp-platform) --- */
         :root {
-            /* Cores Principais - Aesthetic Soft/Clínico */
-            --bg-body: #FDFBF8;       
-            --bg-card: #FFFFFF;
-            --bg-alt: #F3F1ED;
+            /* Cores Principais - Alto Contraste & Elegância */
+            --bg-body: #F5F4F0;       /* Bege muito claro/Off-white quente */
+            --bg-card: #FFFFFF;       /* Branco puro para destacar cards */
+            --bg-dark: #111111;       /* Preto rico */
+            --bg-alt: #EBE7DF;        /* Bege intermediário para seções secundárias */
             
             /* Texto */
-            --text-main: #1C1C1A;
-            --text-light: #5A5A58;
-            --text-inverse: #FFFFFF;
+            --text-main: #111111;     /* Quase preto */
+            --text-light: #5A5A58;    /* Cinza escuro */
+            --text-inverse: #FFFFFF;  /* Branco */
             
             /* Destaques e Botões */
             --accent-black: #000000;
-            --accent-gold: #D4AF37;
-            --border-color: #E8E6E1;
+            --accent-gold: #C29B62;   /* Dourado/Bronze elegante */
+            --border-color: #DCD7CD;
             
             /* Fontes */
-            --font-serif: 'Playfair Display', serif;
-            --font-sans: 'Inter', sans-serif;
+            --font-main: 'Poppins', sans-serif;
             
             /* UI */
             --radius-sm: 8px;
             --radius-md: 16px;
             --radius-lg: 24px;
-            --shadow-soft: 0 10px 30px -10px rgba(0,0,0,0.05);
+            --shadow-soft: 0 15px 35px -10px rgba(0,0,0,0.08);
+            --shadow-hard: 0 20px 40px rgba(0,0,0,0.2);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: var(--font-sans);
+            font-family: var(--font-main);
             color: var(--text-main);
             line-height: 1.6;
             background-color: var(--bg-body);
@@ -55,8 +55,15 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; color: var(--text-main); }
-        p, li, a, button, span { font-family: var(--font-sans); }
+        h1, h2, h3, h4 { 
+            font-family: var(--font-main); 
+            font-weight: 700; 
+            color: var(--text-main); 
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+        
+        p, li, a, button, span { font-family: var(--font-main); }
         img { max-width: 100%; display: block; object-fit: cover; }
         a { text-decoration: none; color: inherit; }
 
@@ -78,25 +85,31 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 16px 36px;
+            padding: 18px 40px;
             border-radius: var(--radius-sm);
             cursor: pointer;
             transition: all 0.3s ease;
             text-align: center;
-            border: none;
+            border: 2px solid var(--accent-black);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 600;
-            font-size: 0.95rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+            font-size: 1rem;
         }
-        .btn-cta:hover { opacity: 0.85; transform: translateY(-2px); }
+        .btn-cta:hover { 
+            background: transparent; 
+            color: var(--accent-black);
+        }
+        .btn-cta:hover .subtext { color: var(--accent-black); }
+        
         .btn-cta .subtext {
             font-size: 0.75rem;
-            font-weight: 400;
+            font-weight: 500;
             text-transform: none;
             color: rgba(255,255,255,0.7);
             margin-top: 4px;
             letter-spacing: 0;
+            transition: color 0.3s ease;
         }
 
         /* --- HEADER / NAV --- */
@@ -104,8 +117,8 @@
             padding: 20px 0;
             position: sticky;
             top: 0;
-            background: rgba(253, 251, 248, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(245, 244, 240, 0.95);
+            backdrop-filter: blur(15px);
             z-index: 1000;
             border-bottom: 1px solid var(--border-color);
         }
@@ -115,26 +128,38 @@
             align-items: center;
         }
         .logo {
-            font-family: var(--font-serif);
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-transform: uppercase;
         }
-        .logo span { font-family: var(--font-sans); font-weight: 300; font-size: 1.2rem; margin-left: 5px; color: var(--text-light); }
+        .logo span { 
+            font-weight: 300; 
+            font-size: 1.4rem; 
+            margin-left: 5px; 
+            color: var(--text-light); 
+        }
         
-        .nav-links { display: flex; gap: 30px; font-size: 0.9rem; font-weight: 500; }
-        .nav-links a:hover { color: var(--text-light); }
+        .nav-links { display: flex; gap: 35px; font-size: 0.95rem; font-weight: 500; }
+        .nav-links a { position: relative; padding-bottom: 4px; }
+        .nav-links a::after {
+            content: ''; position: absolute; width: 0; height: 2px;
+            bottom: 0; left: 0; background-color: var(--accent-gold);
+            transition: width 0.3s;
+        }
+        .nav-links a:hover::after { width: 100%; }
         
         .nav-actions { display: flex; align-items: center; gap: 20px; }
-        .login-btn { font-size: 0.9rem; font-weight: 500; border-bottom: 1px solid transparent; transition: 0.3s; }
-        .login-btn:hover { border-color: var(--text-main); }
+        .login-btn { font-size: 0.95rem; font-weight: 600; border-bottom: 2px solid transparent; transition: 0.3s; }
+        .login-btn:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
         
         .mobile-menu-btn { display: none; font-size: 1.5rem; cursor: pointer; }
 
         /* --- HERO SECTION --- */
         .hero {
-            padding: 80px 0;
+            padding: 100px 0;
             overflow: hidden;
+            background: var(--bg-body);
         }
         .hero-grid {
             display: grid;
@@ -144,68 +169,70 @@
         }
         
         .hero-content .membership-tag {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-light);
-            margin-bottom: 20px;
+            letter-spacing: 3px;
+            color: var(--accent-gold);
+            margin-bottom: 25px;
             display: inline-block;
-            font-weight: 600;
+            font-weight: 700;
         }
         .hero-content h1 {
-            font-size: 3.8rem;
-            line-height: 1.1;
+            font-size: 4.2rem;
+            line-height: 1.05;
             margin-bottom: 24px;
         }
         .hero-content p {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: var(--text-light);
             margin-bottom: 40px;
             max-width: 90%;
+            font-weight: 400;
         }
 
         .hero-visual {
             position: relative;
             border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: var(--shadow-soft);
+            box-shadow: var(--shadow-hard);
         }
         .hero-visual img {
             width: 100%;
-            height: 600px;
+            height: 650px;
             object-fit: cover;
         }
         
         /* Floating Stats Cards */
         .stat-card {
             position: absolute;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 15px 25px;
             border-radius: var(--radius-md);
             box-shadow: var(--shadow-soft);
             border: 1px solid rgba(255,255,255,0.5);
+            bottom: 40px; 
+            right: -20px;
         }
-        .stat-card.top-left { top: 30px; left: -20px; }
-        .stat-card.bottom-right { bottom: 30px; right: -20px; }
-        .stat-card h4 { font-family: var(--font-sans); font-size: 1.2rem; font-weight: 700; margin-bottom: 2px; }
-        .stat-card p { font-size: 0.8rem; color: var(--text-light); margin: 0; }
+        
+        .stat-card h4 { font-size: 1.3rem; font-weight: 800; margin-bottom: 2px; color: var(--accent-gold); }
+        .stat-card p { font-size: 0.85rem; color: var(--text-main); font-weight: 600; margin: 0; text-transform: uppercase; }
 
         /* --- MISSION & GOAL --- */
         .mission-section {
-            background-color: var(--accent-black);
+            background-color: var(--bg-dark);
             color: var(--text-inverse);
-            padding: 100px 0;
+            padding: 120px 0;
             text-align: center;
         }
-        .mission-content { max-width: 800px; margin: 0 auto; }
-        .mission-content h2 { font-size: 2.2rem; margin-bottom: 30px; color: var(--bg-body); }
-        .mission-content p { font-size: 1.1rem; color: #CCCCCC; margin-bottom: 40px; font-weight: 300; }
+        .mission-content { max-width: 850px; margin: 0 auto; }
+        .mission-content h2 { font-size: 2.8rem; margin-bottom: 30px; color: var(--bg-body); }
+        .mission-content p { font-size: 1.2rem; color: #A0A0A0; margin-bottom: 40px; font-weight: 300; line-height: 1.8; }
 
         /* --- WHAT YOU'LL FIND --- */
-        .features-section { padding: 100px 0; background: var(--bg-alt); }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-size: 2.5rem; margin-bottom: 15px; }
+        .features-section { padding: 120px 0; background: var(--bg-alt); }
+        .section-header { text-align: center; margin-bottom: 70px; }
+        .section-header h2 { font-size: 3rem; margin-bottom: 15px; }
         
         .features-grid {
             display: grid;
@@ -214,140 +241,155 @@
         }
         .feature-card {
             background: var(--bg-card);
-            padding: 40px 30px;
+            padding: 45px 35px;
             border-radius: var(--radius-md);
             box-shadow: var(--shadow-soft);
             border: 1px solid var(--border-color);
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        .feature-card:hover { transform: translateY(-5px); }
+        .feature-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: var(--shadow-hard);
+            border-color: var(--accent-gold);
+        }
         .feature-icon {
-            font-size: 2rem;
-            color: var(--accent-black);
-            margin-bottom: 20px;
+            font-size: 2.2rem;
+            color: var(--accent-gold);
+            margin-bottom: 25px;
         }
-        .feature-card h3 { font-family: var(--font-sans); font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
-        .feature-card p { font-size: 0.9rem; color: var(--text-light); }
+        .feature-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 15px; }
+        .feature-card p { font-size: 0.95rem; color: var(--text-light); }
 
         /* --- COURSE / AUDIO LIBRARY --- */
-        .library-section { padding: 100px 0; }
-        .library-top { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; }
+        .library-section { padding: 120px 0; background: var(--bg-body); }
+        .library-top { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 50px; }
+        .library-top h2 { font-size: 2.8rem; }
         
         .courses-scroll {
             display: flex;
             gap: 30px;
             overflow-x: auto;
-            padding-bottom: 30px;
-            scrollbar-width: none; /* Firefox */
+            padding-bottom: 40px;
+            scrollbar-width: none; 
         }
-        .courses-scroll::-webkit-scrollbar { display: none; } /* Chrome */
+        .courses-scroll::-webkit-scrollbar { display: none; }
         
         .course-card {
-            min-width: 320px;
+            min-width: 340px;
             background: var(--bg-card);
             border-radius: var(--radius-md);
             overflow: hidden;
             border: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
+            transition: 0.3s;
         }
+        .course-card:hover { border-color: var(--accent-gold); }
         .course-img {
-            height: 200px;
+            height: 220px;
             background-size: cover;
             background-position: center;
         }
-        .course-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .course-body { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
         .course-rating {
-            display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-light); margin-bottom: 12px;
+            display: flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 600; color: var(--text-light); margin-bottom: 15px;
         }
         .course-rating i { color: var(--accent-gold); }
-        .course-title { font-size: 1.1rem; line-height: 1.4; margin-bottom: 8px; flex-grow: 1; }
-        .course-id { font-size: 0.75rem; color: #999; margin-bottom: 20px; }
+        .course-title { font-size: 1.2rem; line-height: 1.4; margin-bottom: 20px; flex-grow: 1; font-weight: 700; }
         
-        .course-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 15px; }
-        .btn-buy { background: transparent; border: 1px solid var(--accent-black); color: var(--accent-black); padding: 8px 16px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: 0.3s; }
-        .btn-buy:hover { background: var(--accent-black); color: #fff; }
-        .learn-more { font-size: 0.8rem; text-decoration: underline; color: var(--text-light); }
+        .course-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 20px; }
+        
+        .btn-buy { 
+            background: var(--bg-dark); 
+            color: var(--text-inverse); 
+            padding: 10px 20px; 
+            border-radius: 4px; 
+            font-size: 0.85rem; 
+            font-weight: 700; 
+            border: none;
+            cursor: pointer; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .learn-more { font-size: 0.85rem; font-weight: 600; text-decoration: underline; color: var(--text-main); }
+        .learn-more:hover { color: var(--accent-gold); }
 
         /* --- PERKS (HERE'S WHAT YOU GET) --- */
-        .perks-section { padding: 80px 0; background: var(--bg-card); border-top: 1px solid var(--border-color); }
-        .perks-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 50px; }
-        .perk-item { display: flex; gap: 15px; align-items: flex-start; }
-        .perk-item i { color: var(--accent-black); font-size: 1.2rem; margin-top: 3px; }
-        .perk-info h4 { font-family: var(--font-sans); font-size: 1rem; font-weight: 600; margin-bottom: 5px; }
-        .perk-info p { font-size: 0.85rem; color: var(--text-light); }
+        .perks-section { padding: 100px 0; background: var(--bg-card); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+        .perks-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; margin-top: 60px; }
+        .perk-item { display: flex; gap: 20px; align-items: flex-start; }
+        .perk-item i { color: var(--accent-gold); font-size: 1.5rem; margin-top: 5px; }
+        .perk-info h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+        .perk-info p { font-size: 0.95rem; color: var(--text-light); }
 
         /* --- BEFORE & AFTER (TEXT BASED) --- */
-        .ba-section { padding: 100px 0; background: var(--bg-alt); }
-        .ba-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 50px; }
+        .ba-section { padding: 120px 0; background: var(--bg-dark); color: var(--text-inverse); }
+        .ba-section h2 { color: var(--text-inverse); font-size: 3rem; }
+        .ba-section p { color: #A0A0A0; }
         
-        .ba-card { background: var(--bg-card); padding: 40px; border-radius: var(--radius-md); border: 1px solid var(--border-color); }
-        .ba-quote { font-family: var(--font-serif); font-size: 1.2rem; font-style: italic; margin-bottom: 25px; color: var(--text-main); }
-        .ba-results { margin-bottom: 25px; }
-        .ba-results p { font-weight: 600; font-size: 0.9rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .ba-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; margin-top: 60px; }
+        
+        .ba-card { 
+            background: #1A1A1A; 
+            padding: 45px; 
+            border-radius: var(--radius-md); 
+            border: 1px solid #333; 
+        }
+        .ba-quote { font-size: 1.15rem; font-style: italic; margin-bottom: 30px; color: var(--accent-glow); font-weight: 300; }
+        .ba-results { margin-bottom: 30px; }
+        .ba-results p { font-weight: 700; font-size: 0.9rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-gold); }
         .ba-results ul { list-style: none; }
-        .ba-results li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; color: var(--text-light); margin-bottom: 8px; }
-        .ba-results li i { color: #10b981; margin-top: 4px; font-size: 0.8rem; }
+        .ba-results li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.95rem; color: #CCCCCC; margin-bottom: 12px; }
+        .ba-results li i { color: var(--accent-gold); margin-top: 5px; font-size: 0.8rem; }
         
-        .ba-meta { font-size: 0.8rem; color: #888; border-top: 1px solid var(--border-color); padding-top: 15px; }
-
-        /* --- MEET THE EXPERT --- */
-        .expert-section { padding: 100px 0; }
-        .expert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-        .expert-img { border-radius: var(--radius-lg); overflow: hidden; }
-        .expert-img img { width: 100%; height: auto; }
-        
-        .expert-content h2 { font-size: 2.5rem; margin-bottom: 10px; }
-        .expert-content h3 { font-family: var(--font-sans); font-size: 1rem; font-weight: 600; color: var(--text-light); margin-bottom: 30px; text-transform: uppercase; letter-spacing: 1px; }
-        .expert-content p { color: var(--text-light); margin-bottom: 25px; font-size: 1rem; }
-        
-        .credentials-list { list-style: none; margin-top: 30px; }
-        .credentials-list li { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; font-size: 0.9rem; }
-        .credentials-list i { color: var(--accent-gold); }
+        .ba-meta { font-size: 0.85rem; color: #888; border-top: 1px solid #333; padding-top: 20px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
 
         /* --- APP SECTION --- */
-        .app-section { padding: 100px 0; background: var(--bg-alt); }
-        .app-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .app-section { padding: 120px 0; background: var(--bg-body); }
+        .app-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
         
         /* Simple Pure CSS Phone Mockup */
         .phone-mockup {
-            width: 300px; height: 600px;
-            background: #fff; border: 12px solid #111;
-            border-radius: 40px; margin: 0 auto;
+            width: 320px; height: 640px;
+            background: #fff; border: 14px solid var(--bg-dark);
+            border-radius: 45px; margin: 0 auto;
             position: relative; overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-hard);
         }
-        .phone-notch { width: 120px; height: 25px; background: #111; position: absolute; top: 0; left: 50%; transform: translateX(-50%); border-radius: 0 0 15px 15px; z-index: 10;}
-        .phone-screen { padding: 60px 20px 20px; background: linear-gradient(135deg, #fdfbf8 0%, #e8e6e1 100%); height: 100%; display: flex; flex-direction: column; }
-        .app-title { font-family: var(--font-serif); font-size: 1.5rem; text-align: center; margin-bottom: 30px; }
-        .app-track { background: #fff; padding: 15px; border-radius: 12px; margin-bottom: 15px; display: flex; align-items: center; gap: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
-        .app-track-icon { width: 40px; height: 40px; background: #111; border-radius: 8px; display: flex; justify-content: center; align-items: center; color: #fff; }
-        .app-track-info div:first-child { font-weight: 600; font-size: 0.85rem; }
-        .app-track-info div:last-child { font-size: 0.7rem; color: #888; }
+        .phone-notch { width: 140px; height: 30px; background: var(--bg-dark); position: absolute; top: 0; left: 50%; transform: translateX(-50%); border-radius: 0 0 20px 20px; z-index: 10;}
+        .phone-screen { padding: 70px 25px 25px; background: linear-gradient(135deg, #FFFFFF 0%, #F5F4F0 100%); height: 100%; display: flex; flex-direction: column; }
+        .app-title { font-size: 1.8rem; font-weight: 800; text-align: center; margin-bottom: 35px; color: var(--bg-dark); letter-spacing: -1px; }
+        
+        .app-track { background: #fff; padding: 18px; border-radius: 16px; margin-bottom: 15px; display: flex; align-items: center; gap: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.04); border: 1px solid var(--border-color); }
+        .app-track-icon { width: 45px; height: 45px; background: var(--bg-dark); border-radius: 10px; display: flex; justify-content: center; align-items: center; color: var(--accent-gold); }
+        .app-track-info div:first-child { font-weight: 700; font-size: 0.9rem; color: var(--bg-dark); }
+        .app-track-info div:last-child { font-size: 0.75rem; color: var(--text-light); font-weight: 500; margin-top: 2px; }
 
         /* --- FOOTER --- */
-        footer { background: var(--bg-card); padding: 60px 0 30px; border-top: 1px solid var(--border-color); }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 60px; }
-        .footer-logo { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; }
-        .footer-text { font-size: 0.85rem; color: var(--text-light); max-width: 300px; }
-        .footer-links h4 { font-family: var(--font-sans); font-size: 0.9rem; font-weight: 600; margin-bottom: 20px; text-transform: uppercase; }
+        footer { background: var(--bg-card); padding: 80px 0 40px; border-top: 1px solid var(--border-color); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; margin-bottom: 60px; }
+        .footer-logo { font-size: 1.8rem; font-weight: 800; margin-bottom: 20px; letter-spacing: -1px; }
+        .footer-text { font-size: 0.95rem; color: var(--text-light); max-width: 320px; }
+        .footer-links h4 { font-size: 1rem; font-weight: 700; margin-bottom: 25px; text-transform: uppercase; color: var(--bg-dark); }
         .footer-links ul { list-style: none; }
-        .footer-links li { margin-bottom: 10px; font-size: 0.85rem; color: var(--text-light); }
-        .footer-bottom { text-align: center; border-top: 1px solid var(--border-color); padding-top: 30px; font-size: 0.75rem; color: #999; }
+        .footer-links li { margin-bottom: 12px; font-size: 0.9rem; color: var(--text-light); font-weight: 500; }
+        .footer-links a:hover { color: var(--accent-gold); }
+        .footer-bottom { text-align: center; border-top: 1px solid var(--border-color); padding-top: 30px; font-size: 0.8rem; color: #999; }
 
         @media (max-width: 900px) {
             .nav-links, .login-btn { display: none; }
             .mobile-menu-btn { display: block; }
             
-            .hero-grid, .expert-grid, .app-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hero-grid, .app-grid { grid-template-columns: 1fr; gap: 40px; }
             .hero-content { text-align: center; }
             .hero-content p { max-width: 100%; margin: 0 auto 30px; }
-            .hero-content h1 { font-size: 2.8rem; }
-            .stat-card.top-left { top: 10px; left: 10px; }
-            .stat-card.bottom-right { bottom: 10px; right: 10px; }
+            .hero-content h1 { font-size: 3.2rem; }
+            .stat-card { bottom: 20px; right: 20px; }
             
-            .perks-list { grid-template-columns: 1fr; gap: 30px; }
+            .perks-list { grid-template-columns: 1fr; gap: 40px; }
             .footer-grid { grid-template-columns: 1fr; }
+            
+            .library-top { flex-direction: column; align-items: flex-start; gap: 20px; }
         }
     </style>
 </head>
@@ -387,13 +429,9 @@
             </div>
             
             <div class="hero-visual">
-                <!-- Imagem Premium via Unsplash (Inspiração Saúde/Respiração) -->
+                <!-- Imagem com alto contraste (Inspiração Saúde/Respiração) -->
                 <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Respirando Livremente">
                 
-                <div class="stat-card top-left">
-                    <h4>Dr. Especialista</h4>
-                    <p>Fundador & Hipnoterapeuta</p>
-                </div>
                 <div class="stat-card bottom-right">
                     <h4>10.000+</h4>
                     <p>Alunos Livres</p>
@@ -405,12 +443,12 @@
     <!-- MISSÃO -->
     <section class="mission-section" id="sobre">
         <div class="container mission-content">
-            <i class="fas fa-quote-left" style="font-size: 2rem; margin-bottom: 20px; color: var(--accent-gold);"></i>
+            <i class="fas fa-quote-left" style="font-size: 2.5rem; margin-bottom: 25px; color: var(--accent-gold);"></i>
             <h2>A Plataforma Respira é mais do que áudios online.</h2>
             <p>
                 É um espaço global onde milhares de pessoas descobrem uma verdade simples: a liberdade do vício está ao alcance de todos — de forma leve, sem engordar e sem depender de pílulas.
             </p>
-            <p style="font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 40px; font-weight: 600;">
+            <p style="font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; margin-top: 40px; font-weight: 700; color: var(--accent-gold);">
                 Nosso Objetivo: Educar e libertar mentes através da neurociência.
             </p>
         </div>
@@ -421,7 +459,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>O Que Você Encontra na Plataforma</h2>
-                <p style="color: var(--text-light);">Técnicas aplicadas na clínica, agora no seu celular.</p>
+                <p style="color: var(--text-light); font-size: 1.1rem;">Técnicas aplicadas na clínica, agora no seu celular.</p>
             </div>
             
             <div class="features-grid">
@@ -441,9 +479,9 @@
                     <p>Ondas Theta sincronizadas com scripts clínicos para você ouvir enquanto dorme, recondicionando a mente sem esforço.</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-user-md feature-icon"></i>
-                    <h3>Base Científica e Comprovada</h3>
-                    <p>Todo o conhecimento é estruturado por especialistas em comportamento humano e vícios químicos.</p>
+                    <i class="fas fa-shield-alt feature-icon"></i>
+                    <h3>Base Comprovada</h3>
+                    <p>Todo o conhecimento é estruturado de forma prática, focando em resultados efetivos na mudança de comportamento.</p>
                 </div>
             </div>
         </div>
@@ -455,10 +493,10 @@
             <div class="library-top">
                 <div>
                     <h2>Biblioteca de Protocolos</h2>
-                    <p style="color: var(--text-light); margin-top: 10px;">Programas desenvolvidos para resolver problemas específicos.</p>
+                    <p style="color: var(--text-light); margin-top: 10px; font-size: 1.1rem;">Programas desenvolvidos para quebrar o vício rapidamente.</p>
                 </div>
-                <div style="font-size: 0.9rem; font-weight: 600; cursor: pointer;">
-                    Ver todos <i class="fas fa-arrow-right"></i>
+                <div style="font-size: 1rem; font-weight: 700; cursor: pointer; color: var(--bg-dark); text-transform: uppercase; letter-spacing: 1px;">
+                    Ver todos <i class="fas fa-arrow-right" style="color: var(--accent-gold); margin-left: 5px;"></i>
                 </div>
             </div>
             
@@ -469,7 +507,6 @@
                     <div class="course-body">
                         <div class="course-rating"><i class="fas fa-star"></i> 4.9 <span style="margin-left:5px;">5.367 alunos</span></div>
                         <h4 class="course-title">Desafio 7 Dias: Quebra de Gatilhos Subconscientes</h4>
-                        <div class="course-id">ID3055</div>
                         <div class="course-footer">
                             <button class="btn-buy">INCLUÍDO</button>
                             <a href="#" class="learn-more">Saiba mais</a>
@@ -483,7 +520,6 @@
                     <div class="course-body">
                         <div class="course-rating"><i class="fas fa-star"></i> 4.9 <span style="margin-left:5px;">4.599 alunos</span></div>
                         <h4 class="course-title">Áudio SOS: Controle de Ansiedade e Fissura</h4>
-                        <div class="course-id">ID3052</div>
                         <div class="course-footer">
                             <button class="btn-buy">INCLUÍDO</button>
                             <a href="#" class="learn-more">Saiba mais</a>
@@ -497,7 +533,6 @@
                     <div class="course-body">
                         <div class="course-rating"><i class="fas fa-star"></i> 4.8 <span style="margin-left:5px;">3.523 alunos</span></div>
                         <h4 class="course-title">Reprogramação Noturna: Ondas Theta para Fumantes</h4>
-                        <div class="course-id">ID3051</div>
                         <div class="course-footer">
                             <button class="btn-buy">INCLUÍDO</button>
                             <a href="#" class="learn-more">Saiba mais</a>
@@ -511,7 +546,6 @@
                     <div class="course-body">
                         <div class="course-rating"><i class="fas fa-star"></i> 4.9 <span style="margin-left:5px;">2.112 alunos</span></div>
                         <h4 class="course-title">Blindagem Mental: Prevenindo Recaídas e Estresse</h4>
-                        <div class="course-id">ID3050</div>
                         <div class="course-footer">
                             <button class="btn-buy">INCLUÍDO</button>
                             <a href="#" class="learn-more">Saiba mais</a>
@@ -520,7 +554,7 @@
                 </div>
             </div>
             
-            <div class="text-center" style="margin-top: 40px;">
+            <div class="text-center" style="margin-top: 60px;">
                 <button class="btn-cta">
                     <span class="btn-main-text">DESBLOQUEAR TODOS OS ÁUDIOS</span>
                     <span class="subtext">Acesso imediato por apenas R$ 1</span>
@@ -532,7 +566,7 @@
     <!-- PERKS (HERE'S WHAT YOU GET) -->
     <section class="perks-section">
         <div class="container">
-            <h2 style="font-size: 2rem; max-width: 600px;">Isto não é apenas um curso. É o seu suporte diário para a liberdade.</h2>
+            <h2 style="font-size: 2.5rem; max-width: 800px;">Isto não é apenas um curso. É o seu suporte diário para a liberdade.</h2>
             
             <div class="perks-list">
                 <div class="perk-item">
@@ -550,10 +584,10 @@
                     </div>
                 </div>
                 <div class="perk-item">
-                    <i class="fas fa-comments"></i>
+                    <i class="fas fa-users"></i>
                     <div class="perk-info">
-                        <h4>Suporte Contínuo</h4>
-                        <p>Tire dúvidas diretamente com terapeutas no fórum exclusivo da plataforma.</p>
+                        <h4>Comunidade Exclusiva</h4>
+                        <p>Conecte-se com pessoas que compartilham da mesma jornada no fórum da plataforma.</p>
                     </div>
                 </div>
             </div>
@@ -565,7 +599,7 @@
         <div class="container">
             <div class="text-center">
                 <h2>Resultados Reais. Pessoas Reais.</h2>
-                <p style="color: var(--text-light); margin-top: 10px;">O que acontece após os 7 dias de reprogramação.</p>
+                <p style="margin-top: 15px; font-size: 1.1rem;">O que acontece após os 7 dias de reprogramação.</p>
             </div>
             
             <div class="ba-grid">
@@ -580,7 +614,7 @@
                             <li><i class="fas fa-check"></i> Fim da tosse matinal.</li>
                         </ul>
                     </div>
-                    <div class="ba-meta">Carlos M. | Idade: 45 anos | Livre há: 8 meses</div>
+                    <div class="ba-meta">Carlos M. | Livre há: 8 meses</div>
                 </div>
                 
                 <!-- Depoimento 2 -->
@@ -594,35 +628,8 @@
                             <li><i class="fas fa-check"></i> Fôlego restaurado e mais energia.</li>
                         </ul>
                     </div>
-                    <div class="ba-meta">Juliana S. | Idade: 38 anos | Livre há: 1 ano</div>
+                    <div class="ba-meta">Juliana S. | Livre há: 1 ano</div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- EXPERT SECTION -->
-    <section class="expert-section">
-        <div class="container expert-grid">
-            <div class="expert-img">
-                <!-- Imagem Premium via Unsplash (Profissional/Médico) -->
-                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Nosso Especialista">
-            </div>
-            <div class="expert-content">
-                <h2>Conheça seu Treinador Mental</h2>
-                <h3>Especialista Comportamental & Hipnoterapeuta Clínico</h3>
-                
-                <p>
-                    Com mais de 12 anos em medicina integrativa e psicanálise clínica, nosso foco é tratar a causa raiz do vício, e não apenas o sintoma superficial.
-                </p>
-                <p>
-                    O Método Respira nasceu da necessidade de criar um tratamento acessível. Ele combina hipnose baseada em evidências, terapia cognitivo-comportamental e frequências sonoras, desligando a dependência emocional sem o uso de adesivos ou medicamentos químicos.
-                </p>
-                
-                <ul class="credentials-list">
-                    <li><i class="fas fa-star"></i> Fundador da Plataforma Respira de Reprogramação.</li>
-                    <li><i class="fas fa-star"></i> Mais de 10.000 alunos atendidos digitalmente.</li>
-                    <li><i class="fas fa-star"></i> Membro do Registro Oficial de Hipnoterapeutas.</li>
-                </ul>
             </div>
         </div>
     </section>
@@ -631,15 +638,15 @@
     <section class="app-section">
         <div class="container app-grid">
             <div class="app-text">
-                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Respira App — Sempre com Você</h2>
-                <p style="color: var(--text-light); margin-bottom: 30px; font-size: 1.1rem;">
+                <h2 style="font-size: 3rem; margin-bottom: 25px;">Respira App — Sempre com Você</h2>
+                <p style="color: var(--text-light); margin-bottom: 35px; font-size: 1.15rem;">
                     Todos os protocolos terapêuticos na palma da sua mão. Com o acesso mobile você garante a blindagem da sua mente em qualquer lugar.
                 </p>
                 
-                <ul style="list-style: none; margin-bottom: 40px;">
-                    <li style="margin-bottom: 15px; display: flex; gap: 10px; align-items: center;"><i class="fas fa-check-circle" style="color: var(--accent-black);"></i> Áudios SOS para momentos de estresse no trabalho.</li>
-                    <li style="margin-bottom: 15px; display: flex; gap: 10px; align-items: center;"><i class="fas fa-check-circle" style="color: var(--accent-black);"></i> Modo noturno com tela apagada.</li>
-                    <li style="margin-bottom: 15px; display: flex; gap: 10px; align-items: center;"><i class="fas fa-check-circle" style="color: var(--accent-black);"></i> Novas sessões guiadas adicionadas mensalmente.</li>
+                <ul style="list-style: none; margin-bottom: 50px;">
+                    <li style="margin-bottom: 18px; display: flex; gap: 15px; align-items: center; font-weight: 500;"><i class="fas fa-check-circle" style="color: var(--accent-gold); font-size: 1.2rem;"></i> Áudios SOS para momentos de estresse no trabalho.</li>
+                    <li style="margin-bottom: 18px; display: flex; gap: 15px; align-items: center; font-weight: 500;"><i class="fas fa-check-circle" style="color: var(--accent-gold); font-size: 1.2rem;"></i> Modo noturno com tela apagada.</li>
+                    <li style="margin-bottom: 18px; display: flex; gap: 15px; align-items: center; font-weight: 500;"><i class="fas fa-check-circle" style="color: var(--accent-gold); font-size: 1.2rem;"></i> Novas sessões guiadas adicionadas mensalmente.</li>
                 </ul>
                 
                 <button class="btn-cta">
@@ -653,10 +660,10 @@
                 <div class="phone-mockup">
                     <div class="phone-notch"></div>
                     <div class="phone-screen">
-                        <div class="app-title">Respira</div>
+                        <div class="app-title">RESPIRA</div>
                         
                         <div class="app-track">
-                            <div class="app-track-icon"><i class="fas fa-play" style="font-size: 0.8rem;"></i></div>
+                            <div class="app-track-icon"><i class="fas fa-play" style="font-size: 1rem;"></i></div>
                             <div class="app-track-info">
                                 <div>Dia 1: Quebrando a Rotina</div>
                                 <div>18 min • Ondas Theta</div>
@@ -664,15 +671,15 @@
                         </div>
                         
                         <div class="app-track">
-                            <div class="app-track-icon"><i class="fas fa-play" style="font-size: 0.8rem;"></i></div>
+                            <div class="app-track-icon"><i class="fas fa-play" style="font-size: 1rem;"></i></div>
                             <div class="app-track-info">
                                 <div>Áudio SOS Ansiedade</div>
                                 <div>3 min • Foco Imediato</div>
                             </div>
                         </div>
                         
-                        <div class="app-track" style="opacity: 0.6;">
-                            <div class="app-track-icon"><i class="fas fa-lock" style="font-size: 0.8rem;"></i></div>
+                        <div class="app-track" style="opacity: 0.5;">
+                            <div class="app-track-icon"><i class="fas fa-lock" style="font-size: 1rem;"></i></div>
                             <div class="app-track-info">
                                 <div>Dia 2: Substituição Saudável</div>
                                 <div>22 min • Hipnoterapia</div>
