@@ -3,390 +3,720 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Saúde: Pesquisadores revelam nova tecnologia mental contra o tabagismo</title>
+    <title>Plataforma Respira - Reprogramação Mental de 7 Dias</title>
+    
+    <!-- Importando Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Playfair para títulos elegantes, Inter para corpo de texto (estilo clean/clínico) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Ícones -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
     <style>
-        /* --- ESTILOS INSPIRADOS EM PORTAIS DE NOTÍCIAS (EX: G1) --- */
+        /* --- DESIGN SYSTEM: PREMIUM WELLNESS PLATFORM --- */
         :root {
-            --portal-red: #C4170C;
-            --text-main: #222222;
-            --text-gray: #555555;
-            --text-light: #777777;
-            --bg-body: #FFFFFF;
-            --bg-gray: #F5F5F5;
-            --link-color: #0669DE;
-            --font-family: Arial, Helvetica, sans-serif;
+            /* Cores Principais - Aesthetic Soft/Clínico */
+            --bg-body: #FDFBF8;       
+            --bg-card: #FFFFFF;
+            --bg-alt: #F3F1ED;
+            
+            /* Texto */
+            --text-main: #1C1C1A;
+            --text-light: #5A5A58;
+            --text-inverse: #FFFFFF;
+            
+            /* Destaques e Botões */
+            --accent-black: #000000;
+            --accent-gold: #D4AF37;
+            --border-color: #E8E6E1;
+            
+            /* Fontes */
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            
+            /* UI */
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --shadow-soft: 0 10px 30px -10px rgba(0,0,0,0.05);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: var(--font-family);
-            background-color: var(--bg-body);
+            font-family: var(--font-sans);
             color: var(--text-main);
             line-height: 1.6;
+            background-color: var(--bg-body);
+            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Topo do Portal */
-        .portal-header {
-            background-color: var(--portal-red);
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 20px;
-            color: white;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+        h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; color: var(--text-main); }
+        p, li, a, button, span { font-family: var(--font-sans); }
+        img { max-width: 100%; display: block; object-fit: cover; }
+        a { text-decoration: none; color: inherit; }
 
-        .portal-logo {
-            font-size: 24px;
-            font-weight: 900;
-            letter-spacing: -1px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .menu-icon {
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        /* Container Principal */
+        /* --- UTILITÁRIOS --- */
         .container {
-            max-width: 800px;
+            width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 30px 20px;
-        }
-
-        /* Cabeçalho da Matéria */
-        .article-category {
-            color: var(--portal-red);
-            font-size: 16px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
-
-        .article-title {
-            font-size: 36px;
-            font-weight: 800;
-            line-height: 1.1;
-            color: #000;
-            margin-bottom: 15px;
-            letter-spacing: -1px;
-        }
-
-        .article-subtitle {
-            font-size: 19px;
-            color: var(--text-gray);
-            line-height: 1.4;
-            margin-bottom: 25px;
-        }
-
-        .article-meta {
-            font-size: 14px;
-            color: var(--text-light);
-            border-top: 1px solid #EAEAEA;
-            border-bottom: 1px solid #EAEAEA;
-            padding: 15px 0;
-            margin-bottom: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .article-meta span {
-            font-weight: bold;
-            color: var(--text-main);
-        }
-
-        /* Conteúdo da Matéria */
-        .article-content p {
-            font-size: 19px;
-            line-height: 1.7;
-            margin-bottom: 25px;
-            color: #333;
-        }
-
-        .article-content p a {
-            color: var(--link-color);
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .article-content h2 {
-            font-size: 26px;
-            color: #000;
-            margin: 40px 0 20px 0;
-            font-weight: 700;
-        }
-
-        /* Imagens */
-        .article-image {
-            width: 100%;
-            margin: 30px 0;
-        }
-
-        .article-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-            display: block;
-        }
-
-        .image-caption {
-            font-size: 13px;
-            color: var(--text-light);
-            margin-top: 8px;
-            line-height: 1.4;
-        }
-
-        /* Citações / Quotes */
-        .quote-block {
-            border-left: 5px solid var(--portal-red);
-            padding-left: 20px;
-            margin: 30px 0;
-            font-size: 22px;
-            font-style: italic;
-            color: var(--text-gray);
-            line-height: 1.5;
-        }
-
-        /* Lista de Benefícios */
-        .info-box {
-            background-color: var(--bg-gray);
-            padding: 25px;
-            border-radius: 8px;
-            margin: 30px 0;
-            border-left: 4px solid #000;
-        }
-
-        .info-box h3 {
-            font-size: 18px;
-            margin-bottom: 15px;
-        }
-
-        .info-box ul {
-            list-style-type: none;
-        }
-
-        .info-box li {
-            font-size: 17px;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        .info-box li i {
-            color: #10b981;
-            margin-top: 4px;
-        }
-
-        /* Relatos */
-        .testimonial {
-            margin-bottom: 25px;
-            padding-bottom: 25px;
-            border-bottom: 1px dashed #CCC;
+            padding: 0 24px;
         }
         
-        .testimonial:last-child {
-            border-bottom: none;
-        }
-
-        .testimonial p {
-            font-size: 17px;
-            margin-bottom: 10px;
-        }
-
-        .testimonial strong {
-            display: block;
-            font-size: 16px;
-            color: #000;
-        }
-
-        .testimonial span {
-            font-size: 14px;
-            color: var(--text-light);
-        }
-
-        /* Botão / CTA Discreto */
-        .cta-container {
-            margin: 50px 0;
+        .text-center { text-align: center; }
+        
+        /* Botões */
+        .btn-cta {
+            background: var(--accent-black);
+            color: var(--text-inverse);
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 36px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.3s ease;
             text-align: center;
-            background-color: var(--bg-gray);
-            padding: 40px 20px;
-            border-radius: 8px;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .btn-cta:hover { opacity: 0.85; transform: translateY(-2px); }
+        .btn-cta .subtext {
+            font-size: 0.75rem;
+            font-weight: 400;
+            text-transform: none;
+            color: rgba(255,255,255,0.7);
+            margin-top: 4px;
+            letter-spacing: 0;
         }
 
-        .cta-container p {
-            font-size: 16px;
-            margin-bottom: 20px;
-            color: var(--text-gray);
+        /* --- HEADER / NAV --- */
+        header {
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            background: rgba(253, 251, 248, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
         }
-
-        .btn-portal {
-            display: inline-block;
-            background-color: #0669DE;
-            color: #FFFFFF;
-            font-size: 18px;
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
             font-weight: 700;
-            text-decoration: none;
-            padding: 18px 40px;
-            border-radius: 4px;
-            transition: background 0.3s;
+            letter-spacing: -0.5px;
+        }
+        .logo span { font-family: var(--font-sans); font-weight: 300; font-size: 1.2rem; margin-left: 5px; color: var(--text-light); }
+        
+        .nav-links { display: flex; gap: 30px; font-size: 0.9rem; font-weight: 500; }
+        .nav-links a:hover { color: var(--text-light); }
+        
+        .nav-actions { display: flex; align-items: center; gap: 20px; }
+        .login-btn { font-size: 0.9rem; font-weight: 500; border-bottom: 1px solid transparent; transition: 0.3s; }
+        .login-btn:hover { border-color: var(--text-main); }
+        
+        .mobile-menu-btn { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 80px 0;
+            overflow: hidden;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .hero-content .membership-tag {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            display: inline-block;
+            font-weight: 600;
+        }
+        .hero-content h1 {
+            font-size: 3.8rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 90%;
         }
 
-        .btn-portal:hover {
-            background-color: #0556b8;
+        .hero-visual {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
         }
+        .hero-visual img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+        }
+        
+        /* Floating Stats Cards */
+        .stat-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+        .stat-card.top-left { top: 30px; left: -20px; }
+        .stat-card.bottom-right { bottom: 30px; right: -20px; }
+        .stat-card h4 { font-family: var(--font-sans); font-size: 1.2rem; font-weight: 700; margin-bottom: 2px; }
+        .stat-card p { font-size: 0.8rem; color: var(--text-light); margin: 0; }
 
-        .footer-portal {
-            border-top: 4px solid var(--portal-red);
-            background-color: #222;
-            color: #999;
+        /* --- MISSION & GOAL --- */
+        .mission-section {
+            background-color: var(--accent-black);
+            color: var(--text-inverse);
+            padding: 100px 0;
             text-align: center;
-            padding: 30px 20px;
-            font-size: 14px;
         }
+        .mission-content { max-width: 800px; margin: 0 auto; }
+        .mission-content h2 { font-size: 2.2rem; margin-bottom: 30px; color: var(--bg-body); }
+        .mission-content p { font-size: 1.1rem; color: #CCCCCC; margin-bottom: 40px; font-weight: 300; }
 
-        /* Responsivo */
-        @media (max-width: 768px) {
-            .article-title {
-                font-size: 28px;
-            }
-            .article-subtitle {
-                font-size: 17px;
-            }
-            .article-content p {
-                font-size: 17px;
-            }
-            .quote-block {
-                font-size: 19px;
-            }
+        /* --- WHAT YOU'LL FIND --- */
+        .features-section { padding: 100px 0; background: var(--bg-alt); }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 15px; }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+        .feature-card {
+            background: var(--bg-card);
+            padding: 40px 30px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s;
+        }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--accent-black);
+            margin-bottom: 20px;
+        }
+        .feature-card h3 { font-family: var(--font-sans); font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+        .feature-card p { font-size: 0.9rem; color: var(--text-light); }
+
+        /* --- COURSE / AUDIO LIBRARY --- */
+        .library-section { padding: 100px 0; }
+        .library-top { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; }
+        
+        .courses-scroll {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding-bottom: 30px;
+            scrollbar-width: none; /* Firefox */
+        }
+        .courses-scroll::-webkit-scrollbar { display: none; } /* Chrome */
+        
+        .course-card {
+            min-width: 320px;
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+        .course-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        .course-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .course-rating {
+            display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-light); margin-bottom: 12px;
+        }
+        .course-rating i { color: var(--accent-gold); }
+        .course-title { font-size: 1.1rem; line-height: 1.4; margin-bottom: 8px; flex-grow: 1; }
+        .course-id { font-size: 0.75rem; color: #999; margin-bottom: 20px; }
+        
+        .course-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 15px; }
+        .btn-buy { background: transparent; border: 1px solid var(--accent-black); color: var(--accent-black); padding: 8px 16px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: 0.3s; }
+        .btn-buy:hover { background: var(--accent-black); color: #fff; }
+        .learn-more { font-size: 0.8rem; text-decoration: underline; color: var(--text-light); }
+
+        /* --- PERKS (HERE'S WHAT YOU GET) --- */
+        .perks-section { padding: 80px 0; background: var(--bg-card); border-top: 1px solid var(--border-color); }
+        .perks-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 50px; }
+        .perk-item { display: flex; gap: 15px; align-items: flex-start; }
+        .perk-item i { color: var(--accent-black); font-size: 1.2rem; margin-top: 3px; }
+        .perk-info h4 { font-family: var(--font-sans); font-size: 1rem; font-weight: 600; margin-bottom: 5px; }
+        .perk-info p { font-size: 0.85rem; color: var(--text-light); }
+
+        /* --- BEFORE & AFTER (TEXT BASED) --- */
+        .ba-section { padding: 100px 0; background: var(--bg-alt); }
+        .ba-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 50px; }
+        
+        .ba-card { background: var(--bg-card); padding: 40px; border-radius: var(--radius-md); border: 1px solid var(--border-color); }
+        .ba-quote { font-family: var(--font-serif); font-size: 1.2rem; font-style: italic; margin-bottom: 25px; color: var(--text-main); }
+        .ba-results { margin-bottom: 25px; }
+        .ba-results p { font-weight: 600; font-size: 0.9rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .ba-results ul { list-style: none; }
+        .ba-results li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; color: var(--text-light); margin-bottom: 8px; }
+        .ba-results li i { color: #10b981; margin-top: 4px; font-size: 0.8rem; }
+        
+        .ba-meta { font-size: 0.8rem; color: #888; border-top: 1px solid var(--border-color); padding-top: 15px; }
+
+        /* --- MEET THE EXPERT --- */
+        .expert-section { padding: 100px 0; }
+        .expert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .expert-img { border-radius: var(--radius-lg); overflow: hidden; }
+        .expert-img img { width: 100%; height: auto; }
+        
+        .expert-content h2 { font-size: 2.5rem; margin-bottom: 10px; }
+        .expert-content h3 { font-family: var(--font-sans); font-size: 1rem; font-weight: 600; color: var(--text-light); margin-bottom: 30px; text-transform: uppercase; letter-spacing: 1px; }
+        .expert-content p { color: var(--text-light); margin-bottom: 25px; font-size: 1rem; }
+        
+        .credentials-list { list-style: none; margin-top: 30px; }
+        .credentials-list li { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; font-size: 0.9rem; }
+        .credentials-list i { color: var(--accent-gold); }
+
+        /* --- APP SECTION --- */
+        .app-section { padding: 100px 0; background: var(--bg-alt); }
+        .app-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        
+        /* Simple Pure CSS Phone Mockup */
+        .phone-mockup {
+            width: 300px; height: 600px;
+            background: #fff; border: 12px solid #111;
+            border-radius: 40px; margin: 0 auto;
+            position: relative; overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+        .phone-notch { width: 120px; height: 25px; background: #111; position: absolute; top: 0; left: 50%; transform: translateX(-50%); border-radius: 0 0 15px 15px; z-index: 10;}
+        .phone-screen { padding: 60px 20px 20px; background: linear-gradient(135deg, #fdfbf8 0%, #e8e6e1 100%); height: 100%; display: flex; flex-direction: column; }
+        .app-title { font-family: var(--font-serif); font-size: 1.5rem; text-align: center; margin-bottom: 30px; }
+        .app-track { background: #fff; padding: 15px; border-radius: 12px; margin-bottom: 15px; display: flex; align-items: center; gap: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+        .app-track-icon { width: 40px; height: 40px; background: #111; border-radius: 8px; display: flex; justify-content: center; align-items: center; color: #fff; }
+        .app-track-info div:first-child { font-weight: 600; font-size: 0.85rem; }
+        .app-track-info div:last-child { font-size: 0.7rem; color: #888; }
+
+        /* --- FOOTER --- */
+        footer { background: var(--bg-card); padding: 60px 0 30px; border-top: 1px solid var(--border-color); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 60px; }
+        .footer-logo { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; }
+        .footer-text { font-size: 0.85rem; color: var(--text-light); max-width: 300px; }
+        .footer-links h4 { font-family: var(--font-sans); font-size: 0.9rem; font-weight: 600; margin-bottom: 20px; text-transform: uppercase; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 10px; font-size: 0.85rem; color: var(--text-light); }
+        .footer-bottom { text-align: center; border-top: 1px solid var(--border-color); padding-top: 30px; font-size: 0.75rem; color: #999; }
+
+        @media (max-width: 900px) {
+            .nav-links, .login-btn { display: none; }
+            .mobile-menu-btn { display: block; }
+            
+            .hero-grid, .expert-grid, .app-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hero-content { text-align: center; }
+            .hero-content p { max-width: 100%; margin: 0 auto 30px; }
+            .hero-content h1 { font-size: 2.8rem; }
+            .stat-card.top-left { top: 10px; left: 10px; }
+            .stat-card.bottom-right { bottom: 10px; right: 10px; }
+            
+            .perks-list { grid-template-columns: 1fr; gap: 30px; }
+            .footer-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- CABEÇALHO DO PORTAL -->
-    <header class="portal-header">
-        <div class="menu-icon"><i class="fas fa-bars"></i></div>
-        <div class="portal-logo">NOTÍCIAS BR</div>
-        <div class="menu-icon"><i class="fas fa-search"></i></div>
+    <!-- NAVEGAÇÃO -->
+    <header>
+        <div class="container navbar">
+            <div class="logo">MÉTODO<span>RESPIRA</span></div>
+            <div class="nav-links">
+                <a href="#sobre">Sobre a Metodologia</a>
+                <a href="#cursos">Biblioteca de Áudios</a>
+                <a href="#depoimentos">Resultados</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <div class="nav-actions">
+                <a href="#" class="login-btn">Entrar</a>
+                <i class="fas fa-bars mobile-menu-btn"></i>
+            </div>
+        </div>
     </header>
 
-    <main class="container">
-        
-        <!-- CABEÇALHO DA MATÉRIA -->
-        <span class="article-category">Ciência e Saúde</span>
-        <h1 class="article-title">Pesquisadores explicam por que adesivos falham e como nova tecnologia ajuda brasileiros a parar de fumar sem engordar</h1>
-        <p class="article-subtitle">Método utiliza aplicativo de áudio para atuar no subconsciente e promete quebrar a dependência emocional do cigarro em 21 dias, sem exigir "força de vontade" extrema.</p>
-        
-        <div class="article-meta">
-            <div>Por <span>Redação Saúde</span> — São Paulo</div>
-            <div style="font-weight: normal; color: #888;">Atualizado há 2 horas</div>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="membership-tag">Plataforma Exclusiva</div>
+                <h1>Pare de Fumar.<br>Sinta-se Livre.<br>Viva Mais.</h1>
+                <p>
+                    Acesso completo à reprogramação mental contra o tabagismo. 
+                    Experimente práticas guiadas de hipnoterapia que desligam o impulso automático de fumar em apenas 7 dias, restaurando sua saúde sem esforço excessivo.
+                </p>
+                <button class="btn-cta">
+                    <span class="btn-main-text">TORNAR-SE MEMBRO</span>
+                    <span class="subtext">Teste de uma semana por R$ 1, depois R$ 47/mês</span>
+                </button>
+            </div>
+            
+            <div class="hero-visual">
+                <!-- Imagem Premium via Unsplash (Inspiração Saúde/Respiração) -->
+                <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Respirando Livremente">
+                
+                <div class="stat-card top-left">
+                    <h4>Dr. Especialista</h4>
+                    <p>Fundador & Hipnoterapeuta</p>
+                </div>
+                <div class="stat-card bottom-right">
+                    <h4>10.000+</h4>
+                    <p>Alunos Livres</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- CONTEÚDO DA MATÉRIA -->
-        <article class="article-content">
-            
-            <p>Parar de fumar é um dos maiores desafios de saúde pública no Brasil. A maioria dos fumantes relata já ter tentado abandonar o vício pelo menos uma vez, recorrendo a métodos convencionais como adesivos de nicotina, gomas de mascar e medicamentos pesados.</p>
+    <!-- MISSÃO -->
+    <section class="mission-section" id="sobre">
+        <div class="container mission-content">
+            <i class="fas fa-quote-left" style="font-size: 2rem; margin-bottom: 20px; color: var(--accent-gold);"></i>
+            <h2>A Plataforma Respira é mais do que áudios online.</h2>
+            <p>
+                É um espaço global onde milhares de pessoas descobrem uma verdade simples: a liberdade do vício está ao alcance de todos — de forma leve, sem engordar e sem depender de pílulas.
+            </p>
+            <p style="font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 40px; font-weight: 600;">
+                Nosso Objetivo: Educar e libertar mentes através da neurociência.
+            </p>
+        </div>
+    </section>
 
-            <p>No entanto, a taxa de recaída continua alarmante. Especialistas apontam que a explicação para essa frustração pode estar na abordagem inicial do problema: os métodos tradicionais tratam apenas a dependência química do corpo, ignorando o fator principal.</p>
-
-            <h2>O verdadeiro inimigo: a dependência emocional</h2>
-
-            <p>De acordo com pesquisadores em neurociência, a pessoa fuma para preencher momentos de tédio, acalmar picos de estresse ou simplesmente como um sistema de recompensa no fim do dia. Enquanto essa associação neural não for "reescrita", a vontade de fumar sempre retornará.</p>
-
-            <div class="article-image">
-                <img src="https://images.unsplash.com/photo-1533581561726-5b48e354728d?auto=format&fit=crop&q=80&w=1000" alt="Homem apagando um cigarro">
-                <div class="image-caption">O método tradicional de interrupção abrupta costuma gerar ansiedade e compulsão alimentar. (Foto: Reprodução / Banco de Imagens)</div>
+    <!-- O QUE VOCÊ VAI ENCONTRAR -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>O Que Você Encontra na Plataforma</h2>
+                <p style="color: var(--text-light);">Técnicas aplicadas na clínica, agora no seu celular.</p>
             </div>
-
-            <p>É nesse cenário que um programa chamado <strong>Método Respira</strong> tem chamado a atenção de quem busca abandonar o vício. O método abandona a "força de vontade" bruta em favor de uma técnica de reprogramação guiada, disponível em formato de aplicativo (WebApp).</p>
-
-            <div class="quote-block">
-                "O método tradicional exige uma batalha diária contra seus próprios desejos. Isso gera ansiedade e muitas vezes faz a pessoa descontar na comida. A nossa tecnologia de áudio cria uma indiferença natural. Você não precisa 'lutar', a vontade simplesmente deixa de existir."
-            </div>
-
-            <h2>Como funciona o processo de 21 dias</h2>
-
-            <p>A tecnologia do aplicativo baseia-se em áudios que utilizam a <strong>frequência sonora Theta</strong>, conhecida por induzir o cérebro a um estado de relaxamento profundo, facilitando o acesso ao subconsciente.</p>
             
-            <p>O processo é dividido em três etapas simples e autoguiadas:</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-brain feature-icon"></i>
+                    <h3>Práticas de Reprogramação</h3>
+                    <p>Exercícios auditivos que acessam o subconsciente para quebrar a associação neural entre estresse e cigarro.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-headphones-alt feature-icon"></i>
+                    <h3>Áudios SOS para Fissura</h3>
+                    <p>Técnicas de 3 minutos para utilizar em momentos de vontade aguda, bloqueando o impulso quase instantaneamente.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-bed feature-icon"></i>
+                    <h3>Hipnoterapia Noturna</h3>
+                    <p>Ondas Theta sincronizadas com scripts clínicos para você ouvir enquanto dorme, recondicionando a mente sem esforço.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-user-md feature-icon"></i>
+                    <h3>Base Científica e Comprovada</h3>
+                    <p>Todo o conhecimento é estruturado por especialistas em comportamento humano e vícios químicos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <div class="info-box">
-                <h3>O passo a passo do aplicativo:</h3>
-                <ul>
-                    <li><i class="fas fa-check-circle"></i> <strong>1. Configuração:</strong> O usuário informa ao App quais são seus principais gatilhos diários (como o café da manhã, momentos de estresse ou trânsito).</li>
-                    <li><i class="fas fa-check-circle"></i> <strong>2. Reprogramação:</strong> O usuário deve ouvir o áudio recomendado antes de dormir. A leitura consciente se une ao áudio subconsciente (método híbrido).</li>
-                    <li><i class="fas fa-check-circle"></i> <strong>3. Liberação:</strong> Segundo o protocolo, em 21 dias a associação de prazer é quebrada e o cigarro se torna indiferente.</li>
+    <!-- BIBLIOTECA DE CURSOS / ÁUDIOS -->
+    <section class="library-section" id="cursos">
+        <div class="container">
+            <div class="library-top">
+                <div>
+                    <h2>Biblioteca de Protocolos</h2>
+                    <p style="color: var(--text-light); margin-top: 10px;">Programas desenvolvidos para resolver problemas específicos.</p>
+                </div>
+                <div style="font-size: 0.9rem; font-weight: 600; cursor: pointer;">
+                    Ver todos <i class="fas fa-arrow-right"></i>
+                </div>
+            </div>
+            
+            <div class="courses-scroll">
+                <!-- Card 1 -->
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="course-body">
+                        <div class="course-rating"><i class="fas fa-star"></i> 4.9 <span style="margin-left:5px;">5.367 alunos</span></div>
+                        <h4 class="course-title">Desafio 7 Dias: Quebra de Gatilhos Subconscientes</h4>
+                        <div class="course-id">ID3055</div>
+                        <div class="course-footer">
+                            <button class="btn-buy">INCLUÍDO</button>
+                            <a href="#" class="learn-more">Saiba mais</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="course-body">
+                        <div class="course-rating"><i class="fas fa-star"></i> 4.9 <span style="margin-left:5px;">4.599 alunos</span></div>
+                        <h4 class="course-title">Áudio SOS: Controle de Ansiedade e Fissura</h4>
+                        <div class="course-id">ID3052</div>
+                        <div class="course-footer">
+                            <button class="btn-buy">INCLUÍDO</button>
+                            <a href="#" class="learn-more">Saiba mais</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1511295742362-92c96b12a3d9?auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="course-body">
+                        <div class="course-rating"><i class="fas fa-star"></i> 4.8 <span style="margin-left:5px;">3.523 alunos</span></div>
+                        <h4 class="course-title">Reprogramação Noturna: Ondas Theta para Fumantes</h4>
+                        <div class="course-id">ID3051</div>
+                        <div class="course-footer">
+                            <button class="btn-buy">INCLUÍDO</button>
+                            <a href="#" class="learn-more">Saiba mais</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1554244933-d876deb6b2ff?auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="course-body">
+                        <div class="course-rating"><i class="fas fa-star"></i> 4.9 <span style="margin-left:5px;">2.112 alunos</span></div>
+                        <h4 class="course-title">Blindagem Mental: Prevenindo Recaídas e Estresse</h4>
+                        <div class="course-id">ID3050</div>
+                        <div class="course-footer">
+                            <button class="btn-buy">INCLUÍDO</button>
+                            <a href="#" class="learn-more">Saiba mais</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 40px;">
+                <button class="btn-cta">
+                    <span class="btn-main-text">DESBLOQUEAR TODOS OS ÁUDIOS</span>
+                    <span class="subtext">Acesso imediato por apenas R$ 1</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PERKS (HERE'S WHAT YOU GET) -->
+    <section class="perks-section">
+        <div class="container">
+            <h2 style="font-size: 2rem; max-width: 600px;">Isto não é apenas um curso. É o seu suporte diário para a liberdade.</h2>
+            
+            <div class="perks-list">
+                <div class="perk-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <div class="perk-info">
+                        <h4>Protocolo de 7 Dias</h4>
+                        <p>Sessões guiadas sequenciais para reescrever o hábito subconsciente dia após dia.</p>
+                    </div>
+                </div>
+                <div class="perk-item">
+                    <i class="fas fa-infinity"></i>
+                    <div class="perk-info">
+                        <h4>Acesso Ilimitado</h4>
+                        <p>Explore a biblioteca no seu próprio ritmo, ouvindo quantas vezes precisar.</p>
+                    </div>
+                </div>
+                <div class="perk-item">
+                    <i class="fas fa-comments"></i>
+                    <div class="perk-info">
+                        <h4>Suporte Contínuo</h4>
+                        <p>Tire dúvidas diretamente com terapeutas no fórum exclusivo da plataforma.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS / BEFORE & AFTER -->
+    <section class="ba-section" id="depoimentos">
+        <div class="container">
+            <div class="text-center">
+                <h2>Resultados Reais. Pessoas Reais.</h2>
+                <p style="color: var(--text-light); margin-top: 10px;">O que acontece após os 7 dias de reprogramação.</p>
+            </div>
+            
+            <div class="ba-grid">
+                <!-- Depoimento 1 -->
+                <div class="ba-card">
+                    <div class="ba-quote">"Eu não conseguia tomar um simples café sem acender um cigarro. O áudio cortou essa associação neural de forma inacreditável."</div>
+                    <div class="ba-results">
+                        <p>Após a Reprogramação:</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Indiferença total ao cheiro de fumaça.</li>
+                            <li><i class="fas fa-check"></i> Olfato e paladar 100% recuperados.</li>
+                            <li><i class="fas fa-check"></i> Fim da tosse matinal.</li>
+                        </ul>
+                    </div>
+                    <div class="ba-meta">Carlos M. | Idade: 45 anos | Livre há: 8 meses</div>
+                </div>
+                
+                <!-- Depoimento 2 -->
+                <div class="ba-card">
+                    <div class="ba-quote">"Eu mudei completamente. Meu maior medo era engordar se parasse, mas o módulo de controle de ansiedade evitou a compulsão."</div>
+                    <div class="ba-results">
+                        <p>Após a Reprogramação:</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Vontade automática desapareceu.</li>
+                            <li><i class="fas fa-check"></i> Sem ganho de peso (sem compulsão).</li>
+                            <li><i class="fas fa-check"></i> Fôlego restaurado e mais energia.</li>
+                        </ul>
+                    </div>
+                    <div class="ba-meta">Juliana S. | Idade: 38 anos | Livre há: 1 ano</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERT SECTION -->
+    <section class="expert-section">
+        <div class="container expert-grid">
+            <div class="expert-img">
+                <!-- Imagem Premium via Unsplash (Profissional/Médico) -->
+                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Nosso Especialista">
+            </div>
+            <div class="expert-content">
+                <h2>Conheça seu Treinador Mental</h2>
+                <h3>Especialista Comportamental & Hipnoterapeuta Clínico</h3>
+                
+                <p>
+                    Com mais de 12 anos em medicina integrativa e psicanálise clínica, nosso foco é tratar a causa raiz do vício, e não apenas o sintoma superficial.
+                </p>
+                <p>
+                    O Método Respira nasceu da necessidade de criar um tratamento acessível. Ele combina hipnose baseada em evidências, terapia cognitivo-comportamental e frequências sonoras, desligando a dependência emocional sem o uso de adesivos ou medicamentos químicos.
+                </p>
+                
+                <ul class="credentials-list">
+                    <li><i class="fas fa-star"></i> Fundador da Plataforma Respira de Reprogramação.</li>
+                    <li><i class="fas fa-star"></i> Mais de 10.000 alunos atendidos digitalmente.</li>
+                    <li><i class="fas fa-star"></i> Membro do Registro Oficial de Hipnoterapeutas.</li>
                 </ul>
             </div>
+        </div>
+    </section>
 
-            <h2>Diferenças brutais na recuperação</h2>
-
-            <p>Em investigações sobre o comportamento de ex-fumantes, notou-se que as tentativas comuns costumam esgotar a mente do indivíduo, gerando irritabilidade e o frequente ganho de peso pela substituição do cigarro pela comida.</p>
-
-            <p>Os usuários da nova tecnologia relatam não sofrer com a falta de nicotina, mantendo a calma, o controle emocional e, em muitos casos, evitando o ganho de peso e recuperando a velocidade do metabolismo.</p>
-
-            <h2>O que dizem os usuários?</h2>
-
-            <p>A comunidade que adotou o método online, que já soma mais de 5.300 pessoas cadastradas, relata experiências similares de mudança de hábito quase involuntária.</p>
-
-            <div class="testimonial">
-                <p><em>"Eu não achei que iria dar certo. Mas o áudio me fez esquecer de fumar. Simplesmente esqueci. Surreal."</em></p>
-                <strong>Carlos M.</strong>
-                <span>Livre há 8 meses</span>
+    <!-- APP SECTION -->
+    <section class="app-section">
+        <div class="container app-grid">
+            <div class="app-text">
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Respira App — Sempre com Você</h2>
+                <p style="color: var(--text-light); margin-bottom: 30px; font-size: 1.1rem;">
+                    Todos os protocolos terapêuticos na palma da sua mão. Com o acesso mobile você garante a blindagem da sua mente em qualquer lugar.
+                </p>
+                
+                <ul style="list-style: none; margin-bottom: 40px;">
+                    <li style="margin-bottom: 15px; display: flex; gap: 10px; align-items: center;"><i class="fas fa-check-circle" style="color: var(--accent-black);"></i> Áudios SOS para momentos de estresse no trabalho.</li>
+                    <li style="margin-bottom: 15px; display: flex; gap: 10px; align-items: center;"><i class="fas fa-check-circle" style="color: var(--accent-black);"></i> Modo noturno com tela apagada.</li>
+                    <li style="margin-bottom: 15px; display: flex; gap: 10px; align-items: center;"><i class="fas fa-check-circle" style="color: var(--accent-black);"></i> Novas sessões guiadas adicionadas mensalmente.</li>
+                </ul>
+                
+                <button class="btn-cta">
+                    <span class="btn-main-text">COMEÇAR MINHA JORNADA</span>
+                    <span class="subtext">Teste de 7 Dias por R$ 1</span>
+                </button>
             </div>
-
-            <div class="testimonial">
-                <p><em>"Meu medo era engordar. O script focou na ansiedade e eu até emagreci 2kg pois tenho mais fôlego para caminhar."</em></p>
-                <strong>Juliana S.</strong>
-                <span>Livre há 3 meses</span>
+            
+            <div>
+                <!-- CSS Phone Mockup -->
+                <div class="phone-mockup">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="app-title">Respira</div>
+                        
+                        <div class="app-track">
+                            <div class="app-track-icon"><i class="fas fa-play" style="font-size: 0.8rem;"></i></div>
+                            <div class="app-track-info">
+                                <div>Dia 1: Quebrando a Rotina</div>
+                                <div>18 min • Ondas Theta</div>
+                            </div>
+                        </div>
+                        
+                        <div class="app-track">
+                            <div class="app-track-icon"><i class="fas fa-play" style="font-size: 0.8rem;"></i></div>
+                            <div class="app-track-info">
+                                <div>Áudio SOS Ansiedade</div>
+                                <div>3 min • Foco Imediato</div>
+                            </div>
+                        </div>
+                        
+                        <div class="app-track" style="opacity: 0.6;">
+                            <div class="app-track-icon"><i class="fas fa-lock" style="font-size: 0.8rem;"></i></div>
+                            <div class="app-track-info">
+                                <div>Dia 2: Substituição Saudável</div>
+                                <div>22 min • Hipnoterapia</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="testimonial">
-                <p><em>"Coloco o fone antes de dormir. O áudio me acalma e acordo sem aquela tosse matinal. Recomendo demais."</em></p>
-                <strong>Ricardo J.</strong>
-                <span>Livre há 21 dias</span>
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">MÉTODO RESPIRA</div>
+                    <p class="footer-text">
+                        Acesso completo à saúde mental e liberdade do vício. Reprograme seus hábitos e viva com energia, saúde e propósito.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4>Plataforma</h4>
+                    <ul>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Áudios e Cursos</a></li>
+                        <li><a href="#">Depoimentos</a></li>
+                        <li><a href="#">Fale Conosco</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Aviso Médico</a></li>
+                        <li><a href="#">Política de Reembolso</a></li>
+                    </ul>
+                </div>
             </div>
-
-            <h2>Acesso à plataforma</h2>
-
-            <p>A reportagem apurou que o programa completo, que inclui sessões ilimitadas no aplicativo e um material de leitura (ebook), é distribuído de forma online, sem necessidade de consultas presenciais.</p>
-
-            <p>A desenvolvedora do <strong>Método Respira</strong> informa que o acesso vitalício está sendo liberado por um valor promocional de manutenção de <strong>R$ 16,90</strong> (pagamento único, sem mensalidades), com o objetivo de popularizar a tecnologia. A empresa também oferece uma garantia incondicional de 7 dias, devolvendo o dinheiro caso o usuário não perceba a diminuição drástica da vontade de fumar já nos primeiros três dias de uso.</p>
-
-            <!-- CALL TO ACTION (ESTILO MATÉRIA JORNALÍSTICA) -->
-            <div class="cta-container">
-                <p>Para mais informações sobre o aplicativo, o processo de 21 dias e como iniciar o acesso às frequências guiadas, visite a página oficial da plataforma:</p>
-                <a href="https://www.ggcheckout.com/checkout/v4/fRimbgdjPjwLp8uZV3ki" class="btn-portal">
-                    Veja como funciona a experiência
-                </a>
+            <div class="footer-bottom">
+                <p>Todos os serviços e informações neste site têm fins educacionais e não substituem aconselhamento médico. © 2024 Plataforma Respira. Todos os direitos reservados.</p>
             </div>
-
-        </article>
-    </main>
-
-    <!-- RODAPÉ -->
-    <footer class="footer-portal">
-        <p>© 2024 Portal de Notícias. Todos os direitos reservados.</p>
-        <p style="font-size: 11px; margin-top: 5px; color: #666;">Nota: Esta é uma página de conteúdo patrocinado/advertorial.</p>
+        </div>
     </footer>
 
 </body>
